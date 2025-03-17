@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDU University Event GO!</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const loginLink = document.querySelector(".login-link");
+            const signupLink = document.querySelector(".signup-link");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (loggedInUser) {
+                if (loginLink) loginLink.style.display = "none";
+                if (signupLink) signupLink.style.display = "none";
+                if (logoutBtn) logoutBtn.style.display = "block";
+            }
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function () {
+                    localStorage.removeItem("loggedInUser"); 
+                    alert("Logged out successfully!");
+                    window.location.href = "auth/login.html"; 
+                });
+            }
+            
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-left">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Clubs ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="technopark.html">TechnoPark</a></li>
+                        <li><a href="art_club.html">Art Club</a></li>
+                        <li><a href="music_club.html">Music Club</a></li>
+                        <li><a href="ai_lab.html">AI Lab</a></li>
+                        <li><a href="vision_club.html">Vision Club</a></li>
+                        <li><a href="we_sdu.html">We SDU</a></li>
+                        <li><a href="bakers_dozen.html">Bakers Dozen</a></li>
+                        <li><a href="orlean.html">Orlean</a></li>
+                        <li><a href="sanaiq.html">Sana IQ</a></li>
+                        <li><a href="zhasa.html">Zhasa</a></li>
+                        <li><a href="mountain_kings.html">Mountain Kings</a></li>
+                    </ul>
+                </li>
+                <li><a href="event.html">Events</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+            </ul>
+            <div class="logo">
+                <img src="images//logo.PNG" alt="SDU University Logo" class="logo-img">
+            </div>
+    
+            <ul class="nav-right">
+                <li><a href="https://t.me/sdugoo_bot">Telegram Bot</a></li>
+                <li><a href="auth/login.html" class="login-link">Login</a></li>
+                <li><a href="auth/register.html" class="signup-link">Sign Up</a></li>
+                <li><button id="logout-btn" class="logout-btn" style="display:none;">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="news-section">
+        <div class="quote-container">
+            <h2 class="quote-text">Create. Inspire. Achieve. SDU — more than a university!</h2>
+        </div>
+
+         <!-- New Image Scrolling-->
+         <div class="slider">
+            <button class="prev-btn">&lt;</button>  
+            <div class="image-container">
+                <img src="images/IMG_5566.jpg" class="main-image" alt="Main Image">
+            </div>
+            <button class="next-btn">&gt;</button>  
+        </div>
+
+        <div class="view-all-container">
+            <a href="event.html" class="view-all-btn">View All Events →</a>
+        </div>
+    </section>
+
+
+    <div class="countdown-container">
+        <h3>🚀 Next Big Event Starts In:</h3>
+        <div class="countdown-timer">
+            <span class="time-box"><span id="days">00</span> Days</span>
+            <span class="time-box"><span id="hours">00</span> Hours</span>
+            <span class="time-box"><span id="minutes">00</span> Minutes</span>
+            <span class="time-box"><span id="seconds">00</span> Seconds</span>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date("March 14, 2025 18:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+    
+            if (distance < 0) {
+                document.querySelector(".countdown-container").innerHTML = `
+                    <h3 class="event-started">🚀 The event has started! 🎉</h3>`;
+                return;
+            }
+    
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            document.getElementById("days").textContent = days.toString().padStart(2, "0");
+            document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+        }
+    
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+    <div class="news-slider">
+        <div class="news-track">
+            <div class="news-card">
+                <img src="images/5343809386860110589.jpg" alt="Event 1">
+                <div class="news-content">
+                    <h3>BLIND CODE 2025</h3>
+                    <p class="news-date">📅 26th February, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images/IMG_5506.JPG" alt="Event 2">
+                <div class="news-content">
+                    <h3>GOT TALENT 2025</h3>
+                    <p class="news-date">📅 28th February, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images/IMG_5507.JPG" alt="Event 3">
+                <div class="news-content">
+                    <h3>Data MeetUp with Freedom</h3>
+                    <p class="news-date">📅 28th February, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images/football.jpg" alt="Event 4">
+                <div class="news-content">
+                    <h3>Football SDU Cup 2025</h3>
+                    <p class="news-date">📅 21th March, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images\wecode.jpg" alt="Event 5">
+                <div class="news-content">
+                    <h3>We CODE 2025</h3>
+                    <p class="news-date">📅 16th March, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images\qazaqsha.jpg" alt="Event 6">
+                <div class="news-content">
+                    <h3>Qazaqsha Concert</h3>
+                    <p class="news-date">📅 14th March, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images\moun.jpg" alt="Event 7">
+                <div class="news-content">
+                    <h3>Nomad Tour</h3>
+                    <p class="news-date">📅 16th March, 2025</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="images\quiz.jpg" alt="Event 8">
+                <div class="news-content">
+                    <h3>Intellectual QUIZ</h3>
+                    <p class="news-date">📅 15th March, 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    </section>
+    
+    <section class="about-us">
+        <h2>About Us</h2>
+        <div class="about-container">
+            <div class="about-content">
+                <h3>We Are StarGirls</h3>
+                <p>We are a passionate team of innovators dedicated to enhancing university communication and event management. Our mission is to automate and streamline event organization, making it easier for students and clubs to connect, engage, and collaborate.</p>
+                <p>This project was developed for our university to create a seamless experience for event announcements, ticketing, and notifications through integration with a Telegram bot.</p>
+            </div>
+            
+            <!-- Slideshow Container -->
+            <div class="about-slider">
+                <div class="about-image-container">
+                    <img src="images/IMG_5522.JPG" class="about-main-image" alt="StarGirls Team">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="auth/auth.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginLink = document.querySelector(".login-link");
+            const signupLink = document.querySelector(".signup-link");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function () {
+                    localStorage.removeItem("loggedInUser"); 
+                    alert("Logged out successfully!");
+                    window.location.href = "auth/login.html"; 
+                });
+            }
+        });
+    </script>
+    <script> 
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".container").classList.add("loaded");
+    });
+    </script>
+    <script>
+        const images = [
+            "images/IMG_5565.jpg",
+            "images/IMG_5566.jpg",
+            "images/IMG_5567.jpg",
+            "images/IMG_5569.jpg",
+            "images/IMG_5570.jpg", 
+            "images/photo0.jpg",
+            "images/photo1.jpg",
+            "images/photo2.jpg",
+            "images/photo3.jpg",
+            "images/photo4.jpg", 
+            "images/phoro5.jpg",
+            "images/photo7.jpg",
+            "images/photo8.jpg", 
+            "images/photo10.jpg",
+            "images/photo11.jpg", 
+        ];
+        
+        let currentIndex = 0;
+        const mainImage = document.querySelector(".main-image");
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
+    
+
+        const dotsContainer = document.createElement("div");
+        dotsContainer.classList.add("slider-dots");
+        document.querySelector(".slider").appendChild(dotsContainer);
+    
+        images.forEach((_, index) => {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            if (index === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+                currentIndex = index;
+                updateImages();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    
+        function updateImages() {
+            mainImage.classList.add("fade-out"); 
+            setTimeout(() => {
+                mainImage.src = images[currentIndex]; 
+                mainImage.classList.remove("fade-out"); 
+                updateDots();
+            }, 700); 
+        }
+    
+        function updateDots() {
+            document.querySelectorAll(".dot").forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentIndex);
+            });
+        }
+    
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImages();
+        });
+    
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImages();
+        });
+    
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImages();
+        }, 5000);
+    
+        updateImages(); 
+    </script>
+    <script>
+        const eventDate = new Date("February 26, 2025 10:00:00").getTime();
+    
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    
+            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m left`;
+        }, 1000);
+    </script>
+    <script>
+        const aboutImages = [
+            "images/stargirls.JPG",
+            "images/danagul.JPG",
+            "images/malika.JPG",
+            "images/YAAR9562.JPG",
+            "images/arailym.JPG"
+        ];
+        let aboutIndex = 0;
+        const aboutMainImage = document.querySelector(".about-main-image");
+        function updateAboutImage() {
+            aboutMainImage.classList.add("fade-out");
+            setTimeout(() => {
+                aboutMainImage.src = aboutImages[aboutIndex];
+                aboutMainImage.classList.remove("fade-out");
+                aboutIndex = (aboutIndex + 1) % aboutImages.length;
+            }, 800); 
+            }
+            setInterval(updateAboutImage, 4000);
+            updateAboutImage(); 
+        </script>
+        
+</body>
+</html>

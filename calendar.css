@@ -1,0 +1,102 @@
+/* Calendar Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #003366;
+    padding: 15px;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.navbar ul li a.active {
+    border-bottom: 3px solid white;
+}
+
+/* Calendar Section */
+#calendar-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.calendar {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.weekdays div {
+    font-weight: bold;
+    padding: 10px;
+    background: #003366;
+    color: white;
+    border-radius: 5px;
+}
+
+.days div {
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.days div:hover {
+    background: #ddd;
+}
+
+.event-day {
+    background: #FF5733 !important;
+    color: white !important;
+}
