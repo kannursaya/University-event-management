@@ -100,3 +100,38 @@ button {
     background: #FF5733 !important;
     color: white !important;
 }
+
+/* ✅ FIX: Remove Black Background */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    background: rgba(0, 0, 0, 0.3); /* Soft transparent effect */
+    backdrop-filter: blur(5px); /* Soft blur instead of black */
+    z-index: 9; /* Keeps overlay below the modal */
+    pointer-events: none; /* Prevents interaction blocking */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 20; /* Ensure modal is always above the overlay */
+}
+
+
+
+/* Ensure the navbar stays above the overlay */
+.navbar {
+    position: relative;
+    z-index: 15; /* Keep navbar above background */
+}
