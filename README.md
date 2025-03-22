@@ -29,8 +29,7 @@ The **SDU University Event Management System** is a web-based platform designed 
 
 ## **🖥 Tech Stack**  
 - **Frontend**: HTML, CSS, JavaScript (planned UI improvements).  
-- **Backend**: Express.js (Node.js) for API and database management.  
-- **Database**: PostgreSQL (or another suitable DB).  
+- **Backend**: Java Script(Local Storage) for API and database management.    
 - **Bot Integration**: Telegram Bot API for real-time notifications.  
 
 ## **⚡ Installation & Setup**  
